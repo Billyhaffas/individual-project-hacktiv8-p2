@@ -21,12 +21,13 @@
           }
         },
         "url": {
-          "raw": "http://localhost:8080/users/login",
-          "protocol": "http",
+          "raw": "individual-project-p2.up.railway.app/users/login",
           "host": [
-            "localhost"
+            "individual-project-p2",
+            "up",
+            "railway",
+            "app"
           ],
-          "port": "8080",
           "path": [
             "users",
             "login"
@@ -42,7 +43,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\n    \"email\" : \"Kaizokuni@gmail.com\",\n    \"name\" : \"Monkey D Luffy\",\n    \"password\" : \"Rahasiabanget123.\"\n}",
+          "raw": "{\n    \"email\" : \"Kaizokunia@gmail.com\",\n    \"name\" : \"Monkey D Luffy\",\n    \"password\" : \"Rahasiabanget123.\"\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -50,12 +51,13 @@
           }
         },
         "url": {
-          "raw": "http://localhost:8080/users/register",
-          "protocol": "http",
+          "raw": "individual-project-p2.up.railway.app/users/register",
           "host": [
-            "localhost"
+            "individual-project-p2",
+            "up",
+            "railway",
+            "app"
           ],
-          "port": "8080",
           "path": [
             "users",
             "register"
@@ -75,7 +77,7 @@
           "bearer": [
             {
               "key": "token",
-              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjowLCJlbWFpbCI6ImFuZGlAbWFpbC5jb20iLCJpc3MiOiJiaWxseWhhZmZhc19wMl9sYzAyIiwiZXhwIjoxNzc3NjEwMTQxLCJpYXQiOjE3Nzc1MjM3NDF9.lw1SAol0TIwrSSMJFVqZzVJ5Yt6l1iayKNZqYrOaQSc",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjowLCJlbWFpbCI6ImFuZGlAbWFpbC5jb20iLCJpc3MiOiJiaWxseWhhZmZhc19wMl9sYzAyIiwiZXhwIjoxNzc3ODM1Mzc0LCJpYXQiOjE3Nzc3NDg5NzR9.YwVb63HrRshj_KecXkj1qO6Uh3ksGI0GUUa-lF2ii0Q",
               "type": "string"
             }
           ]
@@ -84,7 +86,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\n    \"payment_name\" : \"BCA Virtual Account\",\n    \"amount\" : 200,\n    \"use_for\" : \"Top Up deposit amount\"\n}",
+          "raw": "",
           "options": {
             "raw": {
               "language": "json"
@@ -92,12 +94,13 @@
           }
         },
         "url": {
-          "raw": "http://localhost:8080/api/users",
-          "protocol": "http",
+          "raw": "individual-project-p2.up.railway.app/api/users",
           "host": [
-            "localhost"
+            "individual-project-p2",
+            "up",
+            "railway",
+            "app"
           ],
-          "port": "8080",
           "path": [
             "api",
             "users"
@@ -114,7 +117,7 @@
           "bearer": [
             {
               "key": "token",
-              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjowLCJlbWFpbCI6ImFuZGlAbWFpbC5jb20iLCJpc3MiOiJiaWxseWhhZmZhc19wMl9sYzAyIiwiZXhwIjoxNzc3NjEwMTQxLCJpYXQiOjE3Nzc1MjM3NDF9.lw1SAol0TIwrSSMJFVqZzVJ5Yt6l1iayKNZqYrOaQSc",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjowLCJlbWFpbCI6ImFuZGlAbWFpbC5jb20iLCJpc3MiOiJiaWxseWhhZmZhc19wMl9sYzAyIiwiZXhwIjoxNzc3ODM1Mzc0LCJpYXQiOjE3Nzc3NDg5NzR9.YwVb63HrRshj_KecXkj1qO6Uh3ksGI0GUUa-lF2ii0Q",
               "type": "string"
             }
           ]
@@ -123,7 +126,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\n    \"payment_name\" : \"BCA Virtual Account\",\n    \"amount\" : 2000.87,\n    \"use_for\" : \"Top Up deposit amount\"\n}",
+          "raw": "{\n    \"payment_name\" : \"BCA Virtual Account\",\n    \"amount\" : 25000.87,\n    \"use_for\" : \"Top Up deposit amount\"\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -131,12 +134,13 @@
           }
         },
         "url": {
-          "raw": "http://localhost:8080/api/users/top-up",
-          "protocol": "http",
+          "raw": "individual-project-p2.up.railway.app/api/users/top-up",
           "host": [
-            "localhost"
+            "individual-project-p2",
+            "up",
+            "railway",
+            "app"
           ],
-          "port": "8080",
           "path": [
             "api",
             "users",
@@ -171,12 +175,13 @@
           }
         },
         "url": {
-          "raw": "http://localhost:8080/api/users/rent-book",
-          "protocol": "http",
+          "raw": "individual-project-p2.up.railway.app/api/users/rent-book",
           "host": [
-            "localhost"
+            "individual-project-p2",
+            "up",
+            "railway",
+            "app"
           ],
-          "port": "8080",
           "path": [
             "api",
             "users",
@@ -209,12 +214,13 @@
           "raw": "{\n    \"book_name\" : \"Clean Code\",\n    \"payment_method\" : \"BCA Virtual Account\",\n    \"duration\" : 10\n}\n"
         },
         "url": {
-          "raw": "http://localhost:8080/api/users/rent-book-history",
-          "protocol": "http",
+          "raw": "individual-project-p2.up.railway.app/api/users/rent-book-history",
           "host": [
-            "localhost"
+            "individual-project-p2",
+            "up",
+            "railway",
+            "app"
           ],
-          "port": "8080",
           "path": [
             "api",
             "users",
@@ -268,12 +274,13 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://localhost:8080/api/users/books/Clean Code",
-          "protocol": "http",
+          "raw": "individual-project-hacktiv8-p2-production.up.railway.app/api/users/books/Clean Code",
           "host": [
-            "localhost"
+            "individual-project-hacktiv8-p2-production",
+            "up",
+            "railway",
+            "app"
           ],
-          "port": "8080",
           "path": [
             "api",
             "users",
