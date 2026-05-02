@@ -15,7 +15,6 @@ import (
 	"os"
 	"time"
 
-	"github.com/joho/godotenv"
 	"github.com/labstack/echo/v5"
 
 	_ "github.com/lib/pq"
@@ -24,10 +23,10 @@ import (
 
 func main() {
 	// // connectDB
-	err := godotenv.Load()
-	if err != nil {
-		log.Println(".env not found, skipping", err)
-	}
+	// err := godotenv.Load()
+	// if err != nil {
+	// 	log.Println(".env not found, skipping", err)
+	// }
 
 	port := os.Getenv("PORT")
 	if port == "" {
