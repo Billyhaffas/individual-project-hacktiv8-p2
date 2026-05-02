@@ -1,0 +1,288 @@
+{
+  "info": {
+    "_postman_id": "d8d6f949-8106-4068-8066-ffb177633b88",
+    "name": "Individual-Project-P2",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "28009194"
+  },
+  "item": [
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"email\" : \"andi@mail.com\",\n    \"password\" : \"Rahasiabanget123\"\n\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/users/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "users",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Register",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"email\" : \"Kaizokuni@gmail.com\",\n    \"name\" : \"Monkey D Luffy\",\n    \"password\" : \"Rahasiabanget123.\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/users/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "users",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get User",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjowLCJlbWFpbCI6ImFuZGlAbWFpbC5jb20iLCJpc3MiOiJiaWxseWhhZmZhc19wMl9sYzAyIiwiZXhwIjoxNzc3NjEwMTQxLCJpYXQiOjE3Nzc1MjM3NDF9.lw1SAol0TIwrSSMJFVqZzVJ5Yt6l1iayKNZqYrOaQSc",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"payment_name\" : \"BCA Virtual Account\",\n    \"amount\" : 200,\n    \"use_for\" : \"Top Up deposit amount\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/users",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "users"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Top-Up",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjowLCJlbWFpbCI6ImFuZGlAbWFpbC5jb20iLCJpc3MiOiJiaWxseWhhZmZhc19wMl9sYzAyIiwiZXhwIjoxNzc3NjEwMTQxLCJpYXQiOjE3Nzc1MjM3NDF9.lw1SAol0TIwrSSMJFVqZzVJ5Yt6l1iayKNZqYrOaQSc",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"payment_name\" : \"BCA Virtual Account\",\n    \"amount\" : 2000.87,\n    \"use_for\" : \"Top Up deposit amount\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/users/top-up",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "users",
+            "top-up"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Rent Book",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjowLCJlbWFpbCI6ImFuZGlAbWFpbC5jb20iLCJpc3MiOiJiaWxseWhhZmZhc19wMl9sYzAyIiwiZXhwIjoxNzc3NjQ4NjY3LCJpYXQiOjE3Nzc1NjIyNjd9.bQBKcgb2RAniCIlgnAOC85SjVg4goMllxVmm_t0u-cY",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"book_name\" : \"Clean Code\",\n    \"payment_method\" : \"BCA Virtual Account\",\n    \"duration\" : 10\n}\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/users/rent-book",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "users",
+            "rent-book"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Rent Book",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjowLCJlbWFpbCI6ImFuZGlAbWFpbC5jb20iLCJpc3MiOiJiaWxseWhhZmZhc19wMl9sYzAyIiwiZXhwIjoxNzc3Nzg4NjA0LCJpYXQiOjE3Nzc3MDIyMDR9.eQVsCQypUMDYzd2ssRrXoEKtxggfwV29cFwWrXsh1sg",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"book_name\" : \"Clean Code\",\n    \"payment_method\" : \"BCA Virtual Account\",\n    \"duration\" : 10\n}\n"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/users/rent-book-history",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "users",
+            "rent-book-history"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "rekomendasi book by cartegories (external source)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://www.googleapis.com/books/v1/volumes?q=subject:business",
+          "protocol": "https",
+          "host": [
+            "www",
+            "googleapis",
+            "com"
+          ],
+          "path": [
+            "books",
+            "v1",
+            "volumes"
+          ],
+          "query": [
+            {
+              "key": "q",
+              "value": "subject:business"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Book By Name",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjowLCJlbWFpbCI6ImFuZGlAbWFpbC5jb20iLCJpc3MiOiJiaWxseWhhZmZhc19wMl9sYzAyIiwiZXhwIjoxNzc3Nzg4NjA0LCJpYXQiOjE3Nzc3MDIyMDR9.eQVsCQypUMDYzd2ssRrXoEKtxggfwV29cFwWrXsh1sg",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/users/books/Clean Code",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "users",
+            "books",
+            "Clean Code"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
