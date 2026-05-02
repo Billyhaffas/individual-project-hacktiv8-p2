@@ -1,15 +1,19 @@
 package main
 
 import (
-	http "individual-project-hacktiv8-p2/internal/delivery/http/handler"
+	"individual-project-hacktiv8-p2/internal/delivery/http/handler"
 	"individual-project-hacktiv8-p2/internal/delivery/http/middleware"
 	"individual-project-hacktiv8-p2/internal/infrastructure/database"
 	"individual-project-hacktiv8-p2/internal/repository/db"
+	externalapi "individual-project-hacktiv8-p2/internal/repository/externalApi"
+	"individual-project-hacktiv8-p2/internal/usecase/book"
 	"individual-project-hacktiv8-p2/internal/usecase/paymentRecord"
 	"individual-project-hacktiv8-p2/internal/usecase/rentBookUseCase"
 	"individual-project-hacktiv8-p2/internal/usecase/user"
 	"log"
+	"net/http"
 	"os"
+	"time"
 
 	"github.com/joho/godotenv"
 	"github.com/labstack/echo/v5"
@@ -31,6 +35,7 @@ func main() {
 	}
 
 	sqlDbConn, dbGormConn, err := database.ConnectPostgres()
+
 	if err != nil {
 		log.Fatal("DB connection failed:", err)
 	}
@@ -42,17 +47,21 @@ func main() {
 	bookRepository := db.NewBookDBconnection(dbGormConn)
 	rentBookRepository := db.NewRentBookDBconnection(dbGormConn)
 
+	// init repository (External API)
+	httpClient := &http.Client{Timeout: 10 * time.Second}
+	googleRepo := externalapi.NewGoogleBooksRepo(httpClient)
+
 	//init usecase
 	userUseCase := user.AuthUseCase(userRepository)
 	paymentUseCase := paymentRecord.NewPaymentRecordUseCase(paymentRepository, userRepository)
-	// bookUseCase := book.NewbookUseCase(bookRepository)
+	bookUseCase := book.NewbookUseCase(bookRepository, googleRepo)
 	rentBookUseCase := rentBookUseCase.NewRentBookUseCase(*&dbGormConn, userRepository, rentBookRepository, paymentRepository, bookRepository)
 
 	//init handler
-	userHandler := http.AuthHandler(userUseCase)
-	paymentHandler := http.PaymentHandler(paymentUseCase)
-	// bookHandler := http.NewbookHandler(bookUseCase)
-	rentBookHandler := http.NewrentBookHandler(rentBookUseCase)
+	userHandler := handler.AuthHandler(userUseCase)
+	paymentHandler := handler.PaymentHandler(paymentUseCase)
+	bookHandler := handler.NewbookHandler(bookUseCase)
+	rentBookHandler := handler.NewrentBookHandler(rentBookUseCase)
 
 	echo := echo.New()
 	api := echo.Group("/api")
@@ -64,18 +73,7 @@ func main() {
 	api.POST("/users/top-up", paymentHandler.PostPaymentRecord)
 	api.POST("/users/rent-book", rentBookHandler.PostRentBook)
 	api.GET("/users/rent-book-history", rentBookHandler.GetRentBook)
-	// api.GET("/users/carts", cartHandler.GetCart)
-	// api.POST("/users/carts", cartHandler.PostCart)
-	// api.DELETE("/users/carts/:cart_id", cartHandler.DeleteCart)
-	// // api.GET("/users/rentBooks", rentBookHandler.GetAllrentBook)
-	// api.GET("/books", bookHandler.GetAllbook)
-	// api.GET("/books/:book_id", bookHandler.GetbookById)
-
-	// 	if err := echo.Start(":" + "8086"); err != nil {
-	// 		echo.Logger.Error("failed to start server", "error", err)
-	// 	}
-
-	// }
+	api.GET("/users/books/:book_name", bookHandler.GetbookByName)
 
 	log.Println("Server running on port", port)
 	if err := echo.Start(":" + port); err != nil {

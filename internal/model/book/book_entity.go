@@ -1,14 +1,20 @@
 package book
 
 type Book struct {
-	bookId            int
+	BookId            int
 	Name              string
 	StockAvailability int
 	RentalCost        string
-	Cartegory         string
+	Category          string
 }
 type BookRent struct {
 	BookId            int
 	RentalCost        float32
 	StockAvailability int
+}
+type GetBook struct {
+	BookId            int
+	RentalCost        float32
+	StockAvailability int
+	Category          string
 }

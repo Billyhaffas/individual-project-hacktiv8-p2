@@ -44,3 +44,11 @@ func (bookDB *bookDBconnection) UpdateStockForRentTx(tx *gorm.DB, bookId int) er
 	}
 	return nil
 }
+func (bookDB *bookDBconnection) GetbookByName(name string) (*book.GetBook, string, error) {
+	var bookRent book.GetBook
+	err := bookDB.db.Table("books").Select("book_id", "rental_cost", "stock_availability", "category").Where("name = ?", name).First(&bookRent).Error
+	if err != nil {
+		return nil, "", err
+	}
+	return &bookRent, bookRent.Category, nil
+}

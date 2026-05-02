@@ -1,4 +1,4 @@
-package http
+package handler
 
 import (
 	"individual-project-hacktiv8-p2/internal/domain"
