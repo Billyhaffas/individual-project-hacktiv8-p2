@@ -8,7 +8,13 @@
   "item": [
     {
       "name": "Login",
+      "protocolProfileBehavior": {
+        "followOriginalHttpMethod": true
+      },
       "request": {
+        "auth": {
+          "type": "noauth"
+        },
         "method": "POST",
         "header": [],
         "body": {
@@ -38,6 +44,9 @@
     },
     {
       "name": "Register",
+      "protocolProfileBehavior": {
+        "followOriginalHttpMethod": true
+      },
       "request": {
         "method": "POST",
         "header": [],
@@ -69,7 +78,8 @@
     {
       "name": "Get User",
       "protocolProfileBehavior": {
-        "disableBodyPruning": true
+        "disableBodyPruning": true,
+        "followOriginalHttpMethod": true
       },
       "request": {
         "auth": {
@@ -111,6 +121,9 @@
     },
     {
       "name": "Top-Up",
+      "protocolProfileBehavior": {
+        "followOriginalHttpMethod": true
+      },
       "request": {
         "auth": {
           "type": "bearer",
@@ -152,13 +165,16 @@
     },
     {
       "name": "Rent Book",
+      "protocolProfileBehavior": {
+        "followOriginalHttpMethod": true
+      },
       "request": {
         "auth": {
           "type": "bearer",
           "bearer": [
             {
               "key": "token",
-              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjowLCJlbWFpbCI6ImFuZGlAbWFpbC5jb20iLCJpc3MiOiJiaWxseWhhZmZhc19wMl9sYzAyIiwiZXhwIjoxNzc3NjQ4NjY3LCJpYXQiOjE3Nzc1NjIyNjd9.bQBKcgb2RAniCIlgnAOC85SjVg4goMllxVmm_t0u-cY",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjowLCJlbWFpbCI6ImFuZGlAbWFpbC5jb20iLCJpc3MiOiJiaWxseWhhZmZhc19wMl9sYzAyIiwiZXhwIjoxNzc3ODM3OTM1LCJpYXQiOjE3Nzc3NTE1MzV9.3X7X6X73fTzVZ16l_WhoSt11N-KijUL8z7O3eBQsLzw",
               "type": "string"
             }
           ]
@@ -167,7 +183,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\n    \"book_name\" : \"Clean Code\",\n    \"payment_method\" : \"BCA Virtual Account\",\n    \"duration\" : 10\n}\n",
+          "raw": "{\n    \"book_name\" : \"Clean Code\",\n    \"payment_method\" : \"BCA Virtual Account\",\n    \"duration\" : 2\n}\n",
           "options": {
             "raw": {
               "language": "json"
@@ -234,7 +250,13 @@
       "name": "rekomendasi book by cartegories (external source)",
       "request": {
         "method": "GET",
-        "header": [],
+        "header": [
+          {
+            "key": "",
+            "value": "",
+            "type": "text"
+          }
+        ],
         "url": {
           "raw": "https://www.googleapis.com/books/v1/volumes?q=subject:business",
           "protocol": "https",
@@ -274,9 +296,9 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "individual-project-hacktiv8-p2-production.up.railway.app/api/users/books/Clean Code",
+          "raw": "individual-project-p2.up.railway.app/api/users/books/Clean Code",
           "host": [
-            "individual-project-hacktiv8-p2-production",
+            "individual-project-p2",
             "up",
             "railway",
             "app"
