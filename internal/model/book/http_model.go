@@ -17,3 +17,9 @@ type GetbookById struct {
 	Message string      `json:"message"`
 	Data    *BookRespon `json:"data"`
 }
+
+type RentBookRespon struct {
+	Name       string  `json:"name"`
+	Cartegory  string  `json:"category"`
+	RentalCost float32 `json:"rental_cost"`
+}

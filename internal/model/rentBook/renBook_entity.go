@@ -39,3 +39,24 @@ type RentsBooks struct {
 	CreatedAt       time.Time
 	DueDateRent     time.Time
 }
+
+type GetRentBook struct {
+	RentID            int
+	UserID            int
+	BookID            int
+	PaymentRecordID   int
+	BookName          string
+	RentalCost        float32
+	Category          string
+	UserName          string
+	Email             string
+	PaymentID         int
+	PaymentMethod     string
+	Amount            float32
+	UseFor            string
+	CreatedAtPayment  time.Time
+	Duration          int
+	CreatedAtRentBook time.Time
+	DueDateRent       time.Time
+	CountDate         string
+}

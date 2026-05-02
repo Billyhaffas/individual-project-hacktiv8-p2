@@ -37,3 +37,12 @@ type PostPaymentRecord struct {
 	Status  string `json:"status"`
 	Message string `json:"message"`
 }
+
+type GetRentBookPaymentRespon struct {
+	PaymentRecordId int                               `json:"payment_record_id"`
+	PaymentId       int                               `json:"payment_id"`
+	PaymentInfo     *payment.GetRentBookPaymentMethod `json:"payment_info"`
+	Amount          float32                           `json:"amount"`
+	UseFor          string                            `json:"use_for"`
+	CreatedAt       time.Time                         `json:"created_at"`
+}

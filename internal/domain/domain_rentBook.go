@@ -14,10 +14,13 @@ type rentBookDBconnection struct {
 
 type RentBookRepository interface {
 	PostRentBookDependencies(ctx context.Context, request rentBook.RentsBooks) error
+	GetRentBook(userId int) ([]rentBook.GetRentBook, error)
 }
 type RentBookUseCase interface {
 	PostRentBook(ctx context.Context, email string, bookname string, paymentMethod string, duration int) error
+	GetRentBookByEmail(ctx context.Context, email string) ([]rentBook.GetRentBookRespon, error)
 }
 type RentBookHandler interface {
 	PostRentBook(c *echo.Context) error
+	GetRentBook(c *echo.Context) error
 }

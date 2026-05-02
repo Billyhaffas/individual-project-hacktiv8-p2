@@ -91,3 +91,27 @@ func (rentBookUC *rentBookUseCase) PostRentBook(ctx context.Context, email strin
 	})
 	return err
 }
+
+func (rentBookUC *rentBookUseCase) GetRentBookByEmail(ctx context.Context, email string) ([]rentBook.GetRentBookRespon, error) {
+
+	userReq, err := rentBookUC.userRepository.GetMe(email)
+	if err != nil {
+		return nil, err
+	}
+
+	repoRentBooks, err := rentBookUC.rentBookRepository.GetRentBook(userReq.UserId)
+	if err != nil {
+		return nil, err
+	}
+
+	responses := make([]rentBook.GetRentBookRespon, 0, len(repoRentBooks))
+
+	for _, rentBookRepo := range repoRentBooks {
+		responses = append(
+			responses,
+			mapRentBookJoinToResponse(rentBookRepo),
+		)
+	}
+
+	return responses, nil
+}
