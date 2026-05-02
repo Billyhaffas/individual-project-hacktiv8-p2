@@ -63,6 +63,7 @@ func main() {
 	api.GET("/users", userHandler.GetMe)
 	api.POST("/users/top-up", paymentHandler.PostPaymentRecord)
 	api.POST("/users/rent-book", rentBookHandler.PostRentBook)
+	api.GET("/users/rent-book-history", rentBookHandler.GetRentBook)
 	// api.GET("/users/carts", cartHandler.GetCart)
 	// api.POST("/users/carts", cartHandler.PostCart)
 	// api.DELETE("/users/carts/:cart_id", cartHandler.DeleteCart)
